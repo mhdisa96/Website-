@@ -3,95 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JMS STORE – Katalog Produk</title>
-
-  <!-- 🌟 FAVICON -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/4wPq0LRj/IMG-20251110-091057-807.jpg">
+  <title>JMS STORE – Katalog Produk (Dark Mode)</title>
 
   <style>
-    * {margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
-    body {background:#020617;color:#e5e7eb;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
     header {
-      background:#0f172a;
-      padding:16px;
-      border-bottom:1px solid #1f2937;
-      position:sticky;
-      top:0;
-      z-index:20;
-      display:flex;
-      align-items:center;
-      gap:15px;
+      background: #0f172a;
+      padding: 20px 16px;
+      border-bottom: 1px solid #1f2937;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
-    /* 🌟 LOGO DI HEADER */
-    .header-logo {
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      object-fit:cover;
-      border:2px solid #1e293b;
+    .container {
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .logo-text {
-      font-size:1.7rem;
-      font-weight:700;
-      text-transform:uppercase;
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .container {max-width:1100px;margin:auto;width:100%;}
-    .search-box {margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
-
-    .search-box input,.search-box select {
-      padding:10px 14px;border-radius:999px;border:1px solid #334155;background:#020617;color:#e5e7eb;
+    .search-box {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
-    .search-box input {flex:1;min-width:170px;}
+    .search-box input,
+    .search-box select {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid #334155;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 0.85rem;
+    }
 
-    main {padding:25px 16px 40px;}
-    .section-title {font-size:1.2rem;text-transform:uppercase;margin-bottom:10px;}
-    .product-grid {display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px;}
+    .search-box input {
+      flex: 1;
+      min-width: 180px;
+    }
 
-    .card {background:#0f172a;border-radius:14px;padding:14px;border:1px solid #1e293b;display:flex;flex-direction:column;}
-    .card img {width:100%;height:150px;border-radius:10px;object-fit:cover;margin-bottom:10px;}
-    .card-category {font-size:0.75rem;color:#94a3b8;text-transform:uppercase;margin-bottom:4px;}
-    .card-title {font-size:1rem;font-weight:700;}
-    .card-price {color:#4ade80;font-weight:700;margin:5px 0;}
-    .card-desc {color:#94a3b8;font-size:0.85rem;margin-bottom:12px;flex:1;}
+    main {
+      padding: 25px 16px;
+    }
 
-    .card-footer {display:flex;gap:8px;flex-wrap:wrap;}
-    .btn {padding:8px 12px;border-radius:999px;border:none;cursor:pointer;font-size:0.8rem;text-align:center;}
-    .btn-primary {background:#22c55e;color:#020617;font-weight:700;flex:1;}
-    .btn-outline {border:1px solid #475569;color:#e5e7eb;background:none;}
+    .section-title {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+    }
 
-    .modal-backdrop {position:fixed;inset:0;background:rgba(15,23,42,0.9);display:none;align-items:center;justify-content:center;z-index:50;}
-    .modal-backdrop.show {display:flex;}
-    .modal {background:#020617;border-radius:16px;max-width:450px;width:100%;border:1px solid:#1e293b;padding:16px;}
-    .modal-title {font-size:1.1rem;font-weight:700;margin-bottom:10px;}
-    .modal-body p {margin-bottom:6px;}
-    .btn-close {padding:6px 12px;border-radius:999px;border:1px solid #475569;background:none;color:#e5e7eb;cursor:pointer;}
+    .product-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      margin-top: 16px;
+    }
 
-    footer {text-align:center;padding:16px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:20px;}
+    .card {
+      background: #0f172a;
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 0 24px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .card-category {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .card-price {
+      color: #4ade80;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+
+    .card-desc {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .btn {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #020617;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .btn-outline {
+      border: 1px solid #475569;
+      color: #e5e7eb;
+      background: none;
+      flex: 0 0 auto;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal {
+      background: #020617;
+      border-radius: 16px;
+      max-width: 450px;
+      width: 100%;
+      border: 1px solid #1e293b;
+      padding: 16px;
+    }
+
+    .modal-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .modal-body p {
+      margin-bottom: 8px;
+    }
+
+    .btn-close {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #475569;
+      background: none;
+      color: #e5e7eb;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- 🌟 LOGO DI HEADER -->
-  <img src="https://i.ibb.co/4wPq0LRj/IMG-20251110-091057-807.jpg" class="header-logo">
-
   <div class="container">
-    <div class="logo-text">JMS STORE</div>
+    <div class="logo">JMS STORE</div>
 
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Cari produk..." oninput="filterItems()">
 
+      <!-- DROPDOWN FIXED SESUAI KATEGORI BARU -->
       <select id="categoryFilter" onchange="filterItems()">
         <option value="">Semua Kategori</option>
         <option value="Paket Data">Paket Data</option>
         <option value="VPN Premium SG">VPN Premium SG</option>
         <option value="VPN Premium ID">VPN Premium ID</option>
-        <option value="VPS">VPS</option>
       </select>
     </div>
   </div>
@@ -99,11 +212,12 @@
 
 <main>
   <div class="container">
-    <h2 class="section-title">PRODUK JMS STORE</h2>
+    <h2 class="section-title">Produk JMS STORE</h2>
     <div class="product-grid" id="productGrid"></div>
   </div>
 </main>
 
+<!-- MODAL DETAIL -->
 <div class="modal-backdrop" id="detailModalBackdrop">
   <div class="modal">
     <div class="modal-title" id="modalTitle"></div>
@@ -117,75 +231,66 @@
   </div>
 </div>
 
-<footer>
-  © <span id="year"></span> JMS STORE
-</footer>
-
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  let allProducts = [];
 
-let products = [];
+  async function loadProducts() {
+    const res = await fetch("products.json");
+    const products = await res.json();
+    allProducts = products;
+    const grid = document.getElementById("productGrid");
 
-async function loadProducts() {
-  const res = await fetch("products.json");
-  products = await res.json();
-  renderProducts();
-}
+    products.forEach((p, i) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.setAttribute("data-name", p.name.toLowerCase());
+      card.setAttribute("data-category", p.category);
 
-function renderProducts() {
-  const grid = document.getElementById("productGrid");
-  grid.innerHTML = "";
+      card.innerHTML = `
+        <img src="${p.img}">
+        <div class="card-category">${p.category}</div>
+        <div class="card-title">${p.name}</div>
+        <div class="card-price">${p.price}</div>
+        <div class="card-desc">${p.desc}</div>
 
-  products.forEach((p, i) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.setAttribute("data-name", p.name.toLowerCase());
-    card.setAttribute("data-category", p.category);
-
-    card.innerHTML = `
-      <img src="${p.img}">
-      <div class="card-category">${p.category}</div>
-      <div class="card-title">${p.name}</div>
-      <div class="card-price">${p.price}</div>
-      <div class="card-desc">${p.desc}</div>
-      <div class="card-footer">
         <a class="btn btn-primary" target="_blank"
           href="https://wa.me/6281234567890?text=${encodeURIComponent(p.wa)}">
           Order WhatsApp
         </a>
+
         <button class="btn btn-outline" onclick="openDetail(${i})">Detail</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
+      `;
 
-function filterItems() {
-  const txt = document.getElementById("searchInput").value.toLowerCase();
-  const cat = document.getElementById("categoryFilter").value;
+      grid.appendChild(card);
+    });
+  }
 
-  document.querySelectorAll(".card").forEach(card => {
-    const okName = card.getAttribute("data-name").includes(txt);
-    const okCat = cat === "" || card.getAttribute("data-category") === cat;
-    card.style.display = okName && okCat ? "flex" : "none";
-  });
-}
+  function filterItems() {
+    const txt = document.getElementById("searchInput").value.toLowerCase();
+    const cat = document.getElementById("categoryFilter").value;
+    document.querySelectorAll(".card").forEach(card => {
+      const nameMatch = card.getAttribute("data-name").includes(txt);
+      const catMatch = cat === "" || card.getAttribute("data-category") === cat;
+      card.style.display = nameMatch && catMatch ? "flex" : "none";
+    });
+  }
 
-function openDetail(i) {
-  const p = products[i];
-  document.getElementById("modalTitle").textContent = p.name;
-  document.getElementById("modalCategory").textContent = "Kategori: " + p.category;
-  document.getElementById("modalPrice").textContent = "Harga: " + p.price;
-  document.getElementById("modalDesc").textContent = "Ringkas: " + p.desc;
-  document.getElementById("modalDetail").textContent = "Detail: " + p.detail;
-  document.getElementById("detailModalBackdrop").classList.add("show");
-}
+  function openDetail(i) {
+    const p = allProducts[i];
+    document.getElementById("modalTitle").textContent = p.name;
+    document.getElementById("modalCategory").textContent = "Kategori: " + p.category;
+    document.getElementById("modalPrice").textContent = "Harga: " + p.price;
+    document.getElementById("modalDesc").textContent = "Ringkas: " + p.desc;
+    document.getElementById("modalDetail").textContent = "Detail: " + p.detail;
 
-function closeModal() {
-  document.getElementById("detailModalBackdrop").classList.remove("show");
-}
+    document.getElementById("detailModalBackdrop").classList.add("show");
+  }
 
-loadProducts();
+  function closeModal() {
+    document.getElementById("detailModalBackdrop").classList.remove("show");
+  }
+
+  loadProducts();
 </script>
 
 </body>
