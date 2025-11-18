@@ -1,57 +1,192 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JMS STORE</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JMS STORE – Katalog Produk</title>
+
+  <!-- 🌟 FAVICON -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/4wPq0LRj/IMG-20251110-091057-807.jpg">
+
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif;}
+    body {background:#020617;color:#e5e7eb;}
+    header {
+      background:#0f172a;
+      padding:16px;
+      border-bottom:1px solid #1f2937;
+      position:sticky;
+      top:0;
+      z-index:20;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    /* 🌟 LOGO DI HEADER */
+    .header-logo {
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid #1e293b;
+    }
+
+    .logo-text {
+      font-size:1.7rem;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+
+    .container {max-width:1100px;margin:auto;width:100%;}
+    .search-box {margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
+
+    .search-box input,.search-box select {
+      padding:10px 14px;border-radius:999px;border:1px solid #334155;background:#020617;color:#e5e7eb;
+    }
+
+    .search-box input {flex:1;min-width:170px;}
+
+    main {padding:25px 16px 40px;}
+    .section-title {font-size:1.2rem;text-transform:uppercase;margin-bottom:10px;}
+    .product-grid {display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:16px;}
+
+    .card {background:#0f172a;border-radius:14px;padding:14px;border:1px solid #1e293b;display:flex;flex-direction:column;}
+    .card img {width:100%;height:150px;border-radius:10px;object-fit:cover;margin-bottom:10px;}
+    .card-category {font-size:0.75rem;color:#94a3b8;text-transform:uppercase;margin-bottom:4px;}
+    .card-title {font-size:1rem;font-weight:700;}
+    .card-price {color:#4ade80;font-weight:700;margin:5px 0;}
+    .card-desc {color:#94a3b8;font-size:0.85rem;margin-bottom:12px;flex:1;}
+
+    .card-footer {display:flex;gap:8px;flex-wrap:wrap;}
+    .btn {padding:8px 12px;border-radius:999px;border:none;cursor:pointer;font-size:0.8rem;text-align:center;}
+    .btn-primary {background:#22c55e;color:#020617;font-weight:700;flex:1;}
+    .btn-outline {border:1px solid #475569;color:#e5e7eb;background:none;}
+
+    .modal-backdrop {position:fixed;inset:0;background:rgba(15,23,42,0.9);display:none;align-items:center;justify-content:center;z-index:50;}
+    .modal-backdrop.show {display:flex;}
+    .modal {background:#020617;border-radius:16px;max-width:450px;width:100%;border:1px solid:#1e293b;padding:16px;}
+    .modal-title {font-size:1.1rem;font-weight:700;margin-bottom:10px;}
+    .modal-body p {margin-bottom:6px;}
+    .btn-close {padding:6px 12px;border-radius:999px;border:1px solid #475569;background:none;color:#e5e7eb;cursor:pointer;}
+
+    footer {text-align:center;padding:16px;color:#64748b;font-size:0.85rem;border-top:1px solid #1e293b;margin-top:20px;}
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="JMS STORE Logo">
-            <h1>JMS STORE</h1>
-        </div>
-    </header>
 
-    <section class="server-info">
-        <h2>Server Singapore</h2>
-        <div class="product-card">
-            <h3>VIP SG 7 Hari</h3>
-            <p>Server Singapore VIP 7 Hari</p>
-            <p class="price">Rp 3.000</p>
-            <button class="buy-button" onclick="beliViaWhatsApp('VIP SG 7 Hari')">Beli</button>
-        </div>
+<header>
+  <!-- 🌟 LOGO DI HEADER -->
+  <img src="https://i.ibb.co/4wPq0LRj/IMG-20251110-091057-807.jpg" class="header-logo">
 
-        <div class="product-card">
-            <h3>VIP SG 15 Hari</h3>
-            <p>Server Singapore VIP 15 Hari</p>
-            <p class="price">Rp 6.000</p>
-            <button class="buy-button" onclick="beliViaWhatsApp('VIP SG 15 Hari')">Beli</button>
-        </div>
+  <div class="container">
+    <div class="logo-text">JMS STORE</div>
 
-        <div class="product-card">
-            <h3>VIP SG 30 Hari</h3>
-            <p>Server Singapore VIP 30 Hari</p>
-            <p class="price">Rp 10.000</p>
-            <button class="buy-button" onclick="beliViaWhatsApp('VIP SG 30 Hari')">Beli</button>
-            <a href="https://wa.me/NomorWhatsAppAnda" class="whatsapp-button">
-                <img src="whatsapp-icon.png" alt="WhatsApp">
-            </a>
-        </div>
-    </section>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari produk..." oninput="filterItems()">
 
-    <footer>
-        <!-- Tambahkan elemen footer jika diperlukan -->
-    </footer>
+      <select id="categoryFilter" onchange="filterItems()">
+        <option value="">Semua Kategori</option>
+        <option value="Paket Data">Paket Data</option>
+        <option value="VPN Premium SG">VPN Premium SG</option>
+        <option value="VPN Premium ID">VPN Premium ID</option>
+        <option value="VPS">VPS</option>
+      </select>
+    </div>
+  </div>
+</header>
 
-    <script>
-        function beliViaWhatsApp(namaProduk) {
-            var nomorWhatsApp = "+6282288325977"; // Ganti dengan nomor WhatsApp Anda
-            var pesan = "Halo, saya ingin membeli " + namaProduk;
-            var urlWhatsApp = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
-            window.open(urlWhatsApp);
-        }
-    </script>
+<main>
+  <div class="container">
+    <h2 class="section-title">PRODUK JMS STORE</h2>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="detailModalBackdrop">
+  <div class="modal">
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-body">
+      <p id="modalCategory"></p>
+      <p id="modalPrice"></p>
+      <p id="modalDesc"></p>
+      <p id="modalDetail"></p>
+    </div>
+    <button class="btn-close" onclick="closeModal()">Tutup</button>
+  </div>
+</div>
+
+<footer>
+  © <span id="year"></span> JMS STORE
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+let products = [];
+
+async function loadProducts() {
+  const res = await fetch("products.json");
+  products = await res.json();
+  renderProducts();
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  grid.innerHTML = "";
+
+  products.forEach((p, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.setAttribute("data-name", p.name.toLowerCase());
+    card.setAttribute("data-category", p.category);
+
+    card.innerHTML = `
+      <img src="${p.img}">
+      <div class="card-category">${p.category}</div>
+      <div class="card-title">${p.name}</div>
+      <div class="card-price">${p.price}</div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-footer">
+        <a class="btn btn-primary" target="_blank"
+          href="https://wa.me/6281234567890?text=${encodeURIComponent(p.wa)}">
+          Order WhatsApp
+        </a>
+        <button class="btn btn-outline" onclick="openDetail(${i})">Detail</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function filterItems() {
+  const txt = document.getElementById("searchInput").value.toLowerCase();
+  const cat = document.getElementById("categoryFilter").value;
+
+  document.querySelectorAll(".card").forEach(card => {
+    const okName = card.getAttribute("data-name").includes(txt);
+    const okCat = cat === "" || card.getAttribute("data-category") === cat;
+    card.style.display = okName && okCat ? "flex" : "none";
+  });
+}
+
+function openDetail(i) {
+  const p = products[i];
+  document.getElementById("modalTitle").textContent = p.name;
+  document.getElementById("modalCategory").textContent = "Kategori: " + p.category;
+  document.getElementById("modalPrice").textContent = "Harga: " + p.price;
+  document.getElementById("modalDesc").textContent = "Ringkas: " + p.desc;
+  document.getElementById("modalDetail").textContent = "Detail: " + p.detail;
+  document.getElementById("detailModalBackdrop").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("detailModalBackdrop").classList.remove("show");
+}
+
+loadProducts();
+</script>
+
 </body>
 </html>
