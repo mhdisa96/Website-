@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Paket Edukasi 15GB",
+    "category": "Paket Data",
+    "price": "Rp9.000",
+    "desc": "Paket edukasi 15GB, cocok untuk injek VPN, support all TKP.",
+    "detail": "Paket Edukasi 15GB dengan harga 9.000. Bisa digunakan untuk keperluan injek VPN dan support semua TKP.",
+    "img": "https://via.placeholder.com/400x250?text=Edukasi+15GB",
+    "wa": "Saya mau order Paket Edukasi 15GB di JMS STORE."
+  },
+
+  <!-- VPS TEMPLATE (EDIT NANTI) -->
+  {
+    "name": "VPS Premium SG – 2GB RAM",
+    "category": "VPS",
+    "price": "Rp50.000",
+    "desc": "VPS Singapura, stabil & low latency.",
+    "detail": "VPS Singapura dengan RAM 2GB, CPU 1 vCore, bandwidth unlimited. Cocok untuk bot Telegram, panel, dan script premium.",
+    "img": "https://via.placeholder.com/400x250?text=VPS+SG",
+    "wa": "Saya mau order VPS Premium SG 2GB di JMS STORE."
+  },
+
+  {
+    "name": "VPS Indonesia – 2GB RAM",
+    "category": "VPS",
+    "price": "Rp45.000",
+    "desc": "VPS Indonesia low ping, cocok buat panel.",
+    "detail": "VPS Indonesia dengan RAM 2GB dan server Nevacloud. Stabil dan cocok untuk hosting bot & panel.",
+    "img": "https://via.placeholder.com/400x250?text=VPS+ID",
+    "wa": "Saya mau order VPS Indonesia 2GB di JMS STORE."
+  },
+
+  <!-- PRODUK VPN & PAKET DATA KAMU TETAP DI BAWAH (TIDAK DIHAPUS) -->
+  
+  {
+    "name": "Paket Conference 15GB",
+    "category": "Paket Data",
+    "price": "Rp13.000",
+    "desc": "Paket conference 15GB, cocok untuk injek VPN, support all TKP.",
+    "detail": "Paket Conference 15GB untuk meeting, online class, atau injek VPN. Support semua TKP.",
+    "img": "https://via.placeholder.com/400x250?text=Conference+15GB",
+    "wa": "Saya mau order Paket Conference 15GB di JMS STORE."
+  },
+
+  {
+    "name": "Paket Pros Champion 20GB",
+    "category": "Paket Data",
+    "price": "Rp45.000",
+    "desc": "20GB injek VPN. Rekomendasi area Jatim/Jateng/Kaltim/Madura.",
+    "detail": "Paket Pros Champion 20GB, stabil untuk injek VPN di area Jatim, Jateng, Kaltim, Madura, dan sekitarnya.",
+    "img": "https://via.placeholder.com/400x250?text=Pros+Champion+20GB",
+    "wa": "Saya mau order Paket Pros Champion 20GB di JMS STORE."
+  },
+
+  {
+    "name": "Paket XUT TikTok",
+    "category": "Paket Data",
+    "price": "Rp35.000",
+    "desc": "Paket XUT TikTok injek VPN. Rekomendasi Sumatera/Jabar/Aceh.",
+    "detail": "Paket XUT TikTok untuk keperluan injek VPN. Stabil di Sumatera, Jabar, Aceh, dan wilayah barat Indonesia.",
+    "img": "https://via.placeholder.com/400x250?text=XUT+TikTok",
+    "wa": "Saya mau order Paket XUT TikTok di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 30 Day 🇸🇬",
+    "category": "VPN Premium SG",
+    "price": "Rp8.000",
+    "desc": "VPN SG 30 hari. Limit 2 IP/device. DigitalOcean.",
+    "detail": "VPN Premium 30 Day server SG (DigitalOcean). Limit 2 IP/device, bebas request config.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+SG+30D",
+    "wa": "Saya mau order VPN Premium 30 Day SG di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 15 Day 🇸🇬",
+    "category": "VPN Premium SG",
+    "price": "Rp5.000",
+    "desc": "VPN SG 15 hari. Limit 2 IP/device.",
+    "detail": "VPN Premium 15 Day server SG, performa stabil, cocok untuk penggunaan menengah.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+SG+15D",
+    "wa": "Saya mau order VPN Premium 15 Day SG di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 7 Day 🇸🇬",
+    "category": "VPN Premium SG",
+    "price": "Rp3.000",
+    "desc": "VPN SG 7 hari. Limit 2 IP/device.",
+    "detail": "VPN Premium 7 Day server SG. Cocok untuk trial atau pemakaian singkat.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+SG+7D",
+    "wa": "Saya mau order VPN Premium 7 Day SG di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 30 Day 🇮🇩",
+    "category": "VPN Premium ID",
+    "price": "Rp10.000",
+    "desc": "VPN Indonesia 30 hari. Server Nevacloud.",
+    "detail": "VPN Premium 30 Day server Indonesia (Nevacloud), latency rendah dan stabil.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+ID+30D",
+    "wa": "Saya mau order VPN Premium 30 Day ID di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 15 Day 🇮🇩",
+    "category": "VPN Premium ID",
+    "price": "Rp7.000",
+    "desc": "VPN Indonesia 15 hari. Server Nevacloud.",
+    "detail": "VPN Premium 15 Day Indonesia, cocok untuk penggunaan menengah dan koneksi stabil.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+ID+15D",
+    "wa": "Saya mau order VPN Premium 15 Day ID di JMS STORE."
+  },
+
+  {
+    "name": "VPN Premium 7 Day 🇮🇩",
+    "category": "VPN Premium ID",
+    "price": "Rp4.000",
+    "desc": "VPN Indonesia 7 hari. Server Nevacloud.",
+    "detail": "VPN Premium 7 Day Indonesia, cocok untuk pemakaian singkat atau test layanan.",
+    "img": "https://via.placeholder.com/400x250?text=VPN+ID+7D",
+    "wa": "Saya mau order VPN Premium 7 Day ID di JMS STORE."
+  }
+]
